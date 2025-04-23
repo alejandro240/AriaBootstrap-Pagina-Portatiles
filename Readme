@@ -1,0 +1,17 @@
+## Development Workflow
+
+1.  **Start `watch-sass`:**
+
+    * In your terminal, run: `npm run watch-sass`
+    * This will watch for changes in `scss/style.scss` and automatically compile it to `css/style.css`.
+
+2.  **Open with Live Server VS Code Extension:**
+
+    * In VS Code, open your `index.html` file.
+    * Right-click anywhere in the file and select "Open with Live Server."
+    * Live Server will open your `index.html` in your browser and automatically reload when you make changes.
+
+3.  **Develop:**
+
+    * Edit your `index.html`, `scss/style.scss`, or other files.
+    * Live Server will automatically refresh your browser, and the `watch-sass` script will automatically recompile your Sass.

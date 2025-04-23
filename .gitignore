@@ -1,0 +1,33 @@
+# Node.js
+node_modules/
+package-lock.json
+
+# Build artifacts
+css/
+*.map
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Environment files
+.env
+*.env.local
+*.env.development
+*.env.production
+
+# Temporary files
+tmp/
+temp/
+*.swp
+
+# Other
+.idea/
+.DS_Store
