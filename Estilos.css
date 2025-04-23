@@ -1,0 +1,49 @@
+/* Reset y box-sizing */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Tipografía y fondo */
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #212529;
+  }
+  
+  /* Encabezados */
+  h1, h2, h3 {
+    color: #004080;
+  }
+  
+  /* Botones */
+  .btn-primary {
+    background-color: #004080;
+    border-color: #004080;
+  }
+  .btn-primary:hover,
+  .btn-primary:focus {
+    background-color: #003060;
+    border-color: #003060;
+  }
+  
+  /* Tarjetas */
+  .card {
+    border: 1px solid #dee2e6;
+  }
+  .card-title {
+    color: #004080;
+  }
+  
+  /* Footer */
+  footer {
+    font-size: 0.9rem;
+  }
+  
+  /* Espaciados personalizados */
+  .py-5 {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+  
