@@ -1,49 +1,123 @@
-/* Reset y box-sizing */
+/*===============================
+  RESET Y CONFIGURACIÓN INICIAL
+================================*/
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  
-  /* Tipografía y fondo */
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
-    color: #212529;
-  }
-  
-  /* Encabezados */
-  h1, h2, h3 {
-    color: #004080;
-  }
-  
-  /* Botones */
-  .btn-primary {
-    background-color: #004080;
-    border-color: #004080;
-  }
-  .btn-primary:hover,
-  .btn-primary:focus {
-    background-color: #003060;
-    border-color: #003060;
-  }
-  
-  /* Tarjetas */
-  .card {
-    border: 1px solid #dee2e6;
-  }
-  .card-title {
-    color: #004080;
-  }
-  
-  /* Footer */
-  footer {
-    font-size: 0.9rem;
-  }
-  
-  /* Espaciados personalizados */
-  .py-5 {
-    padding-top: 3rem !important;
-    padding-bottom: 3rem !important;
-  }
-  
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/*===============================
+  TIPOGRAFÍA Y COLOR DE FONDO
+================================*/
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  color: #212529;
+}
+
+/*===============================
+  ESTILO DE ENCABEZADOS
+================================*/
+h1, h2, h3 {
+  color: #004080;
+}
+
+/*===============================
+  ESTILOS PARA LA NAVBAR
+================================*/
+/* Transición y color en enlaces de la barra de navegación */
+.navbar .nav-link {
+  transition: color 0.2s ease-in-out;
+}
+.navbar .nav-link:hover,
+.navbar .nav-link:focus {
+  color: #ffdd57; /* Color amarillo suave en hover */
+}
+
+/*===============================
+  ESTILOS PARA MIGAS (BREADCRUMB)
+================================*/
+.breadcrumb {
+  background-color: transparent;
+  padding: 0;
+  margin-bottom: 0;
+}
+.breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+  content: "›"; /* Separador personalizado */
+}
+
+/*===============================
+  ESTILOS PARA BOTONES
+================================*/
+.btn-primary {
+  background-color: #004080;
+  border-color: #004080;
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #003060;
+  border-color: #003060;
+}
+
+/*===============================
+  ESTILOS PARA LAS TARJETAS (CARDS)
+================================*/
+.card {
+  border: 1px solid #dee2e6;
+  transition: transform 0.2s ease-in-out;
+}
+.card:hover {
+  transform: translateY(-4px); /* Efecto sutil al pasar por encima */
+}
+.card-title {
+  color: #004080;
+}
+
+/*===============================
+  ESTILOS PARA EL FOOTER
+================================*/
+footer {
+  font-size: 0.9rem;
+}
+
+/*===============================
+  ESPACIADOS PERSONALIZADOS
+================================*/
+.py-5 {
+  padding-top: 3rem !important;
+  padding-bottom: 3rem !important;
+}
+
+/*===============================
+  VALIDACIÓN DE FORMULARIOS
+================================*/
+/* Cuando el formulario tiene la clase was-validated y el campo es inválido */
+.was-validated .form-control:invalid {
+  border-color: #dc3545;
+}
+.was-validated .form-control:invalid:focus {
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+
+/* Cuando el formulario tiene la clase was-validated y el campo es válido */
+.was-validated .form-control:valid {
+  border-color: #198754;
+}
+.was-validated .form-control:valid:focus {
+  box-shadow: 0 0 0 0.2rem rgba(25, 135, 84, 0.25);
+}
+
+/*===============================
+  ESTILO PARA IMÁGENES DEL CARRUSEL
+================================*/
+/* Limitamos la altura máxima de la imagen y la centramos */
+/* La altura de 400px es orientativa: puedes cambiarla */
+.img-carrusel {
+  max-height: 400px;
+  width: auto;
+  margin: 0 auto;       /* Centra horizontalmente */
+  object-fit: contain;  /* Escala la imagen, sin recortarla */
+  display: block;
+}

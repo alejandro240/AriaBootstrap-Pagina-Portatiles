@@ -1,60 +1,132 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Gaming Sande – Contacto</title>
+
+  <!-- ENLACE A CSS DE BOOTSTRAP -->
   <link
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
     rel="stylesheet"
     crossorigin="anonymous"
   >
-  <link rel="stylesheet" href="Estilos.css">
+
+  <!-- ENLACE A CSS PROPIO -->
+  <link rel="stylesheet" href="Estilos.css" />
 </head>
 <body>
-  <!-- NAVBAR -->
+  <!-- CABECERA / BARRA DE NAVEGACIÓN -->
   <header role="banner">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark" role="navigation" aria-label="Menú principal">
       <div class="container-fluid">
-        <a class="navbar-brand" href="index.html">Gaming Sande</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Mostrar navegación">
+        <a class="navbar-brand" href="Index.html">Gaming Sande</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navPrincipal"
+                aria-controls="navPrincipal" aria-expanded="false" aria-label="Mostrar navegación">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navMain">
+        <div class="collapse navbar-collapse" id="navPrincipal">
           <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
-            <li class="nav-item"><a class="nav-link" href="productos.html">Productos</a></li>
-            <li class="nav-item"><a class="nav-link active" aria-current="page" href="contacto.html">Contacto</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="Index.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Productos.html">Productos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="Contacto.html">Contacto</a>
+            </li>
           </ul>
         </div>
       </div>
     </nav>
   </header>
 
-  <!-- MAIN -->
+  <!-- CONTENIDO PRINCIPAL -->
   <main role="main" class="container py-5">
     <h2 class="mb-4 text-center">Contáctanos</h2>
     <div class="row">
+      <!-- COLUMNA IZQUIERDA: FORMULARIO -->
       <div class="col-lg-6">
-        <form novalidate>
+        <!-- ALERTA DE ÉXITO (OCULTA) -->
+        <div id="alertaExito" class="alert alert-success d-none" role="alert">
+          ¡Mensaje enviado correctamente! Nos pondremos en contacto contigo pronto.
+        </div>
+
+        <!-- ALERTA DE ERROR (OCULTA) -->
+        <div id="alertaError" class="alert alert-danger d-none" role="alert">
+          Ha ocurrido un error al enviar el mensaje. Por favor, inténtalo de nuevo.
+        </div>
+
+        <!-- FORMULARIO DE CONTACTO -->
+        <form id="formularioContacto" class="needs-validation" novalidate>
+          <!-- CAMPO NOMBRE -->
           <div class="mb-3">
-            <label for="nombre" class="form-label">Nombre</label>
-            <input type="text" class="form-control" id="nombre" aria-required="true" required>
+            <label for="campoNombre" class="form-label">Nombre <span class="text-danger">*</span></label>
+            <input
+              type="text"
+              class="form-control"
+              id="campoNombre"
+              name="nombre"
+              placeholder="Juan Pérez"
+              aria-required="true"
+              required
+            />
+            <div class="invalid-feedback">
+              Por favor, ingresa tu nombre.
+            </div>
           </div>
+
+          <!-- CAMPO CORREO ELECTRÓNICO -->
           <div class="mb-3">
-            <label for="email" class="form-label">Correo electrónico</label>
-            <input type="email" class="form-control" id="email" aria-required="true" required>
+            <label for="campoEmail" class="form-label">Correo electrónico <span class="text-danger">*</span></label>
+            <input
+              type="email"
+              class="form-control"
+              id="campoEmail"
+              name="email"
+              placeholder="ejemplo@dominio.com"
+              aria-required="true"
+              required
+            />
+            <div class="invalid-feedback">
+              Por favor, ingresa un correo válido.
+            </div>
           </div>
+
+          <!-- CAMPO MENSAJE -->
           <div class="mb-3">
-            <label for="mensaje" class="form-label">Mensaje</label>
-            <textarea class="form-control" id="mensaje" rows="4" aria-required="true" required></textarea>
+            <label for="campoMensaje" class="form-label">Mensaje <span class="text-danger">*</span></label>
+            <textarea
+              class="form-control"
+              id="campoMensaje"
+              name="mensaje"
+              rows="4"
+              placeholder="Escribe tu consulta aquí..."
+              aria-required="true"
+              required
+            ></textarea>
+            <div class="invalid-feedback">
+              Por favor, ingresa tu mensaje.
+            </div>
           </div>
-          <button type="submit" class="btn btn-primary">Enviar</button>
+
+          <!-- BOTONES: ENVIAR Y LIMPIAR -->
+          <div class="d-flex justify-content-between">
+            <button type="submit" class="btn btn-primary" id="botonEnviar">
+              <!-- SPINNER OCULTO INICIALMENTE -->
+              <span id="spinnerEnvio" class="spinner-border spinner-border-sm me-2 d-none" role="status" aria-hidden="true"></span>
+              Enviar
+            </button>
+            <button type="reset" class="btn btn-secondary" id="botonLimpiar">Limpiar</button>
+          </div>
         </form>
       </div>
-      <div class="col-lg-6">
+
+      <!-- COLUMNA DERECHA: DATOS ADICIONALES -->
+      <div class="col-lg-6 mt-5 mt-lg-0">
         <h3>Dirección</h3>
-        <p>Carrer Ficticio, 10<br>Reus, Tarragona, España</p>
+        <p>Carrer Ficticio, 10<br />Reus, Tarragona, España</p>
         <h3>Mapa</h3>
         <div class="ratio ratio-16x9">
           <iframe
@@ -68,11 +140,61 @@
     </div>
   </main>
 
-  <!-- FOOTER -->
+  <!-- PIE DE PÁGINA -->
   <footer role="contentinfo" class="bg-dark text-white text-center py-3">
     <p>&copy; 2025 Gaming Sande. Todos los derechos reservados.</p>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <!-- SCRIPTS DE BOOTSTRAP -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+          crossorigin="anonymous"></script>
+
+  <!-- SCRIPT PROPIO DE VALIDACIÓN Y ENVÍO SIMULADO -->
+  <script>
+    // Función autoejecutable para manejar la validación del formulario
+    (function () {
+      'use strict';
+
+      // Referencias a elementos del DOM
+      const formularioContacto = document.getElementById('formularioContacto');
+      const spinnerEnvio = document.getElementById('spinnerEnvio');
+      const alertaExito = document.getElementById('alertaExito');
+      const alertaError = document.getElementById('alertaError');
+
+      // Evento al enviar el formulario
+      formularioContacto.addEventListener(
+        'submit',
+        function (evento) {
+          evento.preventDefault();
+          evento.stopPropagation();
+
+          // Si hay campos inválidos, mostrar validación de Bootstrap
+          if (!formularioContacto.checkValidity()) {
+            formularioContacto.classList.add('was-validated');
+          } else {
+            // Mostrar spinner y desactivar botón Enviar
+            spinnerEnvio.classList.remove('d-none');
+            document.getElementById('botonEnviar').setAttribute('disabled', 'true');
+
+            // Simular envío con temporizador
+            setTimeout(() => {
+              // Ocultar spinner y reactivar botón
+              spinnerEnvio.classList.add('d-none');
+              document.getElementById('botonEnviar').removeAttribute('disabled');
+
+              // Mostrar alerta de éxito (en un proyecto real se haría fetch/AJAX)
+              alertaExito.classList.remove('d-none');
+              alertaError.classList.add('d-none');
+
+              // Reiniciar clase de validación y campos del formulario
+              formularioContacto.classList.remove('was-validated');
+              formularioContacto.reset();
+            }, 1500);
+          }
+        },
+        false
+      );
+    })();
+  </script>
 </body>
 </html>
